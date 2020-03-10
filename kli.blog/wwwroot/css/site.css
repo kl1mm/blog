@@ -4,12 +4,13 @@
 }
 
 header {
-	background-image: linear-gradient(-130deg, #0e1c3a 10%, #4a687b 35%, #8caba4 65%, #c9f3d1 90%);
+	background-image: linear-gradient(-130deg, #0e1c3a 10%, #4a687b 35%, #8caba4 65%, #0e849c 90%);
 	height: 100px;
 }
 
 	header nav {
-		margin: 32px 48px 0px 48px;
+		margin: 32px auto;
+		width: 800px;
 		display: flex;
 	}
 
@@ -24,6 +25,7 @@ header {
 		font-weight: 700;
 		align-self: center;
 	}
+
 		header a:hover {
 			opacity: 0.65;
 		}
@@ -31,6 +33,7 @@ header {
 		header a.title {
 			font-size: 1.2rem;
 			text-transform: none;
+			padding: 0;
 		}
 
 		header a img {
@@ -55,4 +58,14 @@ app {
 	position: relative;
 	display: flex;
 	flex-direction: column;
+}
+
+@media only screen and (max-width: 800px) {
+	header nav {
+		width: auto;
+		margin: 32px 16px;
+	}
+	header a.title {
+		font-size: 1.0rem;
+	}
 }

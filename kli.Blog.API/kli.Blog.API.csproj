@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<Nullable>enable</Nullable>
+		<WarningsAsErrors>true</WarningsAsErrors>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="3.2.0-preview2.20160.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\kli.Blog.Client\kli.Blog.Client.csproj" />
+	  <ProjectReference Include="..\kli.Blog.Core\kli.Blog.Core.csproj" />
+	</ItemGroup>
+</Project>

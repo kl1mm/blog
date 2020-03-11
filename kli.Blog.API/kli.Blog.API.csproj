@@ -2,8 +2,6 @@
 
 	<PropertyGroup>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
-		<Nullable>enable</Nullable>
-		<WarningsAsErrors>true</WarningsAsErrors>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -11,7 +9,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\kli.Blog.Client\kli.Blog.Client.csproj" />
-	  <ProjectReference Include="..\kli.Blog.Core\kli.Blog.Core.csproj" />
+		<ProjectReference Include="..\kli.Blog.Client\kli.Blog.Client.csproj" />
+		<ProjectReference Include="..\kli.Blog.Core\kli.Blog.Core.csproj" />
 	</ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-﻿using kli.Blog.Core.Models;
+﻿using kli.Blog.Shared.Models;
 using MediatR;
 using System;
 using System.Threading;

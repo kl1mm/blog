@@ -1,0 +1,24 @@
+﻿<Project>
+
+	<PropertyGroup>
+		<BaseDir>$(MSBuildThisFileDirectory)</BaseDir>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<LangVersion>8.0</LangVersion>		
+		<Nullable>enable</Nullable>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <NeutralLanguage>de</NeutralLanguage>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<VersionPrefix>0.1.0</VersionPrefix>
+		<VersionSuffix>DEV-$([System.DateTime]::UtcNow.ToString(yyyyMMdd))</VersionSuffix>
+		<Authors>mMilk</Authors>
+		<Copyright>Copyright © $(Authors) 2019,$([System.DateTime]::Now.Year)</Copyright>
+		<Trademark>$(Authors)™</Trademark>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<Product>mMilk's Blog</Product>
+	</PropertyGroup>
+	
+</Project>

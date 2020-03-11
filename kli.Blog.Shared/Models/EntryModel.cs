@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace kli.Blog.Core.Models
+namespace kli.Blog.Shared.Models
 {
 	public class EntryModel
 	{

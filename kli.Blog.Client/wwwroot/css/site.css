@@ -1,6 +1,8 @@
 ﻿html, body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	margin: 0;
+	height: 100%;
+	color: #4b505a;
 }
 
 header {
@@ -54,10 +56,21 @@ header {
     background-size: cover;
 }*/
 
+footer {
+	margin: 0 auto;
+	height: 20px;
+	flex-shrink: 0;
+	font-size: 0.875rem;
+}
+main {
+	flex: 1 0 auto;
+}
+
 app {
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	height: 100%;
 }
 
 @media only screen and (max-width: 800px) {

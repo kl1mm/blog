@@ -1,0 +1,15 @@
+﻿@using kli.Blog.Shared.Models
+
+<div class="intro">
+	<h1>@Entry?.Header</h1>
+	<p>@Entry?.Intro</p>
+	<span class="published">
+		Published <b>@Entry?.Published.ToString("MMM dd, yyyy")</b>
+	</span>
+</div>
+
+
+@code {
+	[Parameter]
+	public EntryModel? Entry { get; set; }
+}

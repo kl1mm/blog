@@ -9,11 +9,11 @@ namespace kli.Blog.Client.Pages
 	{
 		[Inject] protected HttpClient? Client { get; set; }
 
-		protected EntryModel? Data { get; set; }
+		protected EntryModel? AboutEntry { get; set; }
 
 		protected async override Task OnInitializedAsync()
 		{
-			this.Data = await this.Client.GetJsonAsync<EntryModel>("api/About/me") ?? null;
+			this.AboutEntry = await this.Client.GetJsonAsync<EntryModel>("api/About/me") ?? null;
 		}
 	}
 }

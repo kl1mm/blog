@@ -1,4 +1,11 @@
 ﻿@page "/about"
 
-About
-	<p>@Data?.Intro</p>
+<section>
+	<article>
+		<header>
+			<HeaderIntro Entry="@AboutEntry"/>
+		</header>
+		<div class="content">@((MarkupString)AboutEntry?.Content)</div>
+		<footer></footer>
+	</article>
+</section>

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace kli.Blog.Core
 {
-	public static class GetOverview
+	public static class GetBlogOverview
 	{
 		private static IQueryable<EntryModel> fakes = new List<EntryModel>
 		{

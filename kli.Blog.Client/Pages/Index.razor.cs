@@ -23,9 +23,7 @@ namespace kli.Blog.Client.Pages
 
 		private async Task LoadDataAsync(int page)
 		{
-			this.Overview = await this.Client
-				.PostJsonAsync<PagedModel<OverviewModel>>("api/blog/overview", new { PageSize = 5, CurrentPage = page });
-			
+			this.Overview = await this.Client.GetJsonAsync<PagedModel<OverviewModel>>($"api/blog/overview?page={page}");
 			this.StateHasChanged();
 		}
 	}

@@ -8,17 +8,18 @@
 			{
 				@foreach (var overviewEntry in this.Overview.Rows)
 				{
-					<h2 style="margin: 0;">
-						<a class="overview-header-link" href="@($"/entry/{overviewEntry.Id}")">@overviewEntry.Header</a>
-					</h2>
-					<span class="published">
-						<b>@overviewEntry.Published.ToString("MMM dd, yyyy")</b>
-					</span>
-
-					<p>
-						@((MarkupString)overviewEntry.Intro)
-						<a class="overview-header-more" href="@($"/entry/{overviewEntry.Id}")">...</a>
-					</p>
+					<div class="entry">
+						<h2 style="margin: 0;">
+							<a class="overview-header-link" href="@($"/entry/{overviewEntry.Id}")">@overviewEntry.Header</a>
+						</h2>
+						<span class="published">
+							<b>@overviewEntry.Published.ToString("MMM dd, yyyy")</b>
+						</span>
+						<p>
+							@((MarkupString)overviewEntry.Intro)
+							<a class="overview-header-more" href="@($"/entry/{overviewEntry.Id}")">...</a>
+						</p>
+					</div>
 				}
 				<Pagination PagedData="@this.Overview" PageChanged="@this.OnPageChanged" />
 			}

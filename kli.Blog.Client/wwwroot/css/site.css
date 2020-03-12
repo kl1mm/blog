@@ -153,7 +153,7 @@ article header {
 }*/
 footer {
 	margin: 0 auto;
-	height: 20px;
+	height: 32px;
 	flex-shrink: 0;
 	font-size: 0.875rem;
 }
@@ -171,8 +171,8 @@ app {
 
 @media only screen and (max-width: 800px) {
 	app > header {
-		width: 360px;
-		margin-left: -180px;
+		width: 366px;
+		margin-left: -183px;
 	}
 
 		app > header a.title {

@@ -1,0 +1,23 @@
+﻿@if (this.PagedData != null && this.HasPages)
+{
+	<div class="pagination">
+		<div style="flex:1;">
+			@if (!this.IsLastPage)
+			{
+				<div class="btn" @onclick="@(() => PagerButtonClicked(this.PagedData.CurrentPage + 1))">
+					<img src="assets/left-icon.png" />
+					<span style="margin-left: 8px;">Older</span>
+				</div>
+			}
+		</div>
+		<div>
+			@if (!this.IsFirstPage)
+			{
+				<div class="btn" @onclick="@(() => PagerButtonClicked(this.PagedData.CurrentPage - 1))">
+					<span style="margin-right: 8px;">Newer</span>
+					<img src="assets/right-icon.png" />
+				</div>
+			}
+		</div>
+	</div>
+}

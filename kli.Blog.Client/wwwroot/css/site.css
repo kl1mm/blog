@@ -11,15 +11,41 @@ h1 {
 	font-weight: 600;
 }
 
-	app > header {
-		width: 800px;
-		margin-left: -400px;
-		display: flex;
-		position: absolute;
-		left: 50%;
-		top: 32px;
-		z-index: 900;
-	}
+h2 {
+	font-size: 1.5rem;
+	font-weight: 400;
+}
+
+a:hover, a:active, a:visited {
+	opacity: 0.65;
+}
+
+.overview-header-link {
+	color: #0e849c;
+	text-decoration: none;
+}
+
+.overview-header-more {
+	text-decoration: none;
+	background-color: #D9D9D9;
+	display: block;
+	width: 22px;
+	text-align: center;
+	height: 12px;
+	line-height: 5px;
+	color: white;
+	margin: 8px 0;
+}
+
+app > header {
+	width: 800px;
+	margin-left: -400px;
+	display: flex;
+	position: absolute;
+	left: 50%;
+	top: 32px;
+	z-index: 900;
+}
 
 		app > header a {
 			color: white;
@@ -32,10 +58,6 @@ h1 {
 			font-weight: 700;
 			align-self: center;
 		}
-
-			app > header a:hover {
-				opacity: 0.65;
-			}
 
 			app > header a.title {
 				font-size: 1.2rem;
@@ -69,15 +91,28 @@ article header {
 		margin: 0;
 	}
 
-.published {
-	font-size: 0.875rem;
-	opacity: 0.65;
+	.intro .published {
+		font-size: 0.75rem;
+		opacity: 0.65;
+	}
+
+.content .published {
+	font-size: 0.75rem;
 }
+
+	.content .published::after {
+		content: "";
+		display: block;
+		width: 20px;
+		height: 1px;
+		margin-top: 3px;
+		background: #0e849c;
+	}
 
 .content {
 	max-width: 700px;
 	margin: 0 auto;
-	padding: 24px;
+	padding: 48px 24px;
 	line-height: 1.5;
 }
 

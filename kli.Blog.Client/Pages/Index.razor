@@ -1,21 +1,29 @@
 ﻿@page "/"
 
-	<section>
-		<article>
-			<header />
-			<div class="content">
-				@if (this.Overview != null)
+<section>
+	<article>
+		<header />
+		<div class="content">
+			@if (this.Overview != null)
+			{
+				@foreach (var overviewEntry in this.Overview.Rows)
 				{
-					@foreach (var overviewEntry in this.Overview.Rows)
-					{
-						<h3>@overviewEntry.Header</h3>
-						<p>@overviewEntry.Intro</p>
-						<p>@overviewEntry.Published</p>
-					}
-					<Pagination PagedData="@this.Overview" PageChanged="@this.OnPageChanged" />
+					<h2 style="margin: 0;">
+						<a class="overview-header-link" href="@($"/entry/{overviewEntry.Id}")">@overviewEntry.Header</a>
+					</h2>
+					<span class="published">
+						<b>@overviewEntry.Published.ToString("MMM dd, yyyy")</b>
+					</span>
+
+					<p>
+						@((MarkupString)overviewEntry.Intro)
+						<a class="overview-header-more" href="@($"/entry/{overviewEntry.Id}")">...</a>
+					</p>
 				}
-			</div>
-			<footer>
-			</footer>
-		</article>
-	</section>
+				<Pagination PagedData="@this.Overview" PageChanged="@this.OnPageChanged" />
+			}
+		</div>
+		<footer>
+		</footer>
+	</article>
+</section>

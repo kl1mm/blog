@@ -1,11 +1,8 @@
 ﻿@page "/entry/{entryId:int}"
 
-<section>
-	<article>
-		<header>
-			<HeaderIntro Entry="@EntryModel"/>
-		</header>
-		<div class="content">@((MarkupString)EntryModel?.Content)</div>
-		<footer></footer>
-	</article>
-</section>
+
+<header>
+	<HeaderIntro Entry="@EntryModel" />
+</header>
+<div class="content">@((MarkupString)EntryModel?.Content)</div>
+<footer />

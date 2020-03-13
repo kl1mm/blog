@@ -1,11 +1,8 @@
 ﻿@page "/about"
 
-<section>
-	<article>
-		<header>
-			<HeaderIntro Entry="@AboutModel"/>
-		</header>
-		<div class="content">@((MarkupString)AboutModel?.Content)</div>
-		<footer></footer>
-	</article>
-</section>
+
+<header>
+	<HeaderIntro Entry="@AboutModel" />
+</header>
+<div class="content">@((MarkupString)AboutModel?.Content)</div>
+<footer />

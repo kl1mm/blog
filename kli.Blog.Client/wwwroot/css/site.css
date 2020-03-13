@@ -37,6 +37,35 @@ a:hover, a:active, a:visited {
 	margin: 8px 0;
 }
 
+.signinform {
+	width: 300px;
+	margin: 0 auto;
+	padding-bottom: 2em;
+}
+
+	.signinform legend {
+		font-size: 1.2em;
+		font-weight: bold;
+	}
+
+	.signinform fieldset {
+		border: none;
+	}
+
+	.signinform input[type=submit] {
+		width: auto !important;
+	}
+
+	.signinform input[type=text], .signinform input[type=password], .signinform input[type=submit] {
+		display: block;
+		width: 100%;
+		margin-bottom: 10px;
+		padding: 3px 7px;
+		border: 1px solid #808080;
+		font: inherit;
+	}
+
+
 app > header {
 	width: 800px;
 	margin-left: -400px;
@@ -47,30 +76,30 @@ app > header {
 	z-index: 900;
 }
 
-		app > header a {
-			color: white;
-			text-align: center;
-			text-decoration: none;
-			text-transform: uppercase;
-			padding: 0 0 0 20px;
-			font-family: "Karla", sans-serif;
-			font-size: 0.75rem;
-			font-weight: 700;
-			align-self: center;
+	app > header a {
+		color: white;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;
+		padding: 0 0 0 20px;
+		font-family: "Karla", sans-serif;
+		font-size: 0.75rem;
+		font-weight: 700;
+		align-self: center;
+	}
+
+		app > header a.title {
+			font-size: 1.2rem;
+			text-transform: none;
+			padding: 0;
 		}
 
-			app > header a.title {
-				font-size: 1.2rem;
-				text-transform: none;
-				padding: 0;
-			}
-
-			app > header a img {
-				width: 32px;
-				vertical-align: middle;
-				padding-right: 10px;
-				padding-bottom: 2px;
-			}
+		app > header a img {
+			width: 32px;
+			vertical-align: middle;
+			padding-right: 10px;
+			padding-bottom: 2px;
+		}
 
 article header {
 	width: 100%;
@@ -157,6 +186,11 @@ footer {
 	flex-shrink: 0;
 	font-size: 0.875rem;
 }
+
+	footer a {
+		text-decoration: none;
+		color: #4b505a;
+	}
 
 main {
 	flex: 1 0 auto;

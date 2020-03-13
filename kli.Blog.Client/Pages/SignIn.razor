@@ -1,0 +1,15 @@
+﻿@page "/signin"
+
+<header />
+<div class="content">
+	<form action="api/authentication/signin" method="post" class="signinform">
+		<fieldset>
+			<legend>Sign in</legend>
+			<input type="text" autofocus required placeholder="Login" name="login" />
+			<input type="password" placeholder="Password" required name="password" />
+			<input type="hidden" name="returnurl" value="/" />
+			<input type="submit" value="Sign in" />
+		</fieldset>
+	</form>
+</div>
+<footer />

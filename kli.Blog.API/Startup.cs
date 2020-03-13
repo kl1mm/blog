@@ -1,4 +1,5 @@
 using kli.Blog.Core;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +13,8 @@ namespace kli.Blog.API
 		{
 			services.AddCore();
 			services.AddControllers();
+			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+				.AddCookie();
 		}
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -25,6 +28,7 @@ namespace kli.Blog.API
 			app.UseStaticFiles();
 			app.UseBlazorFrameworkFiles();
 			app.UseRouting();
+			app.UseAuthentication();
 
 			app.UseEndpoints(endpoints =>
 			{

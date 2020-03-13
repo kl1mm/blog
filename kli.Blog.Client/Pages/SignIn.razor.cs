@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using kli.Blog.Shared.Extensions;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -15,7 +16,7 @@ namespace kli.Blog.Client.Pages
 		{
 			var content = new FormUrlEncodedContent(new[] {
 				KeyValuePair.Create(nameof(SignInModel.Login), this.Model.Login),
-				KeyValuePair.Create(nameof(SignInModel.Password), this.Model.Password),
+				KeyValuePair.Create("PasswordHash", this.Model.Password.Sha256()),
 			});
 
 			var response = await this.Client!.PostAsync("api/authentication/signin", content);

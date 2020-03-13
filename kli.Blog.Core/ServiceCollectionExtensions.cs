@@ -1,6 +1,8 @@
 ﻿using FluentValidation;
 using kli.Blog.Core.Behaviours;
+using kli.Blog.Core.Settings;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -10,11 +12,12 @@ namespace kli.Blog.Core
 {
 	public static class ServiceCollectionExtensions
 	{
-		public static IServiceCollection AddCore(this IServiceCollection services)
+		public static IServiceCollection AddCore(this IServiceCollection services, IConfiguration configuration)
 		{
 			if (services == null)
 				throw new ArgumentNullException(nameof(services));
 
+			services.Configure<AppSettings>(configuration, cb => cb.BindNonPublicProperties = true); 
 			services.AddValidators();
 			services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));
 			services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));

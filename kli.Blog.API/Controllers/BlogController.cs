@@ -20,6 +20,12 @@ namespace kli.Blog.API.Controllers
 			var result = await this.Mediator.Send(new GetBlogEntry.Request() { Id = entryId });
 			return this.Ok(result);
 		}
+        
+        [HttpPost]
+		public ActionResult SaveEntry(EntryModel entryModel)
+		{
+			return this.Ok();
+		}
 	}
 }
 

@@ -4,9 +4,11 @@ namespace kli.Blog.Shared.Models
 {
 	public class EntryModel
 	{
-		public string Header { get; set; } = string.Empty;
+        public int Id { get; set; } = 0;
+        public string Header { get; set; } = string.Empty;
 		public string Intro { get; set; } = string.Empty;
 		public string Content { get; set; } = string.Empty;
-		public DateTime Published { get; set; }
+        public bool IsPublished { get; set; }
+        public DateTime Published { get; set; }
 	}
 }

@@ -2,14 +2,17 @@
 
 <header />
 <div class="content">
-	<form action="api/authentication/signin" method="post" class="signinform">
+	<EditForm OnSubmit="@Submit" Model="@Model" class="signinform">
+		@if (Model.Error != null)
+		{
+			<div class="error">@Model.Error</div>
+		}
 		<fieldset>
 			<legend>Sign in</legend>
-			<input type="text" autofocus required placeholder="Login" name="login" />
-			<input type="password" placeholder="Password" required name="password" />
-			<input type="hidden" name="returnurl" value="/" />
-			<input type="submit" value="Sign in" />
+			<InputText @bind-Value="Model.Login" autofocus="true" required="true" type="text"/>
+			<InputText @bind-Value="Model.Password" required="true" type="password"/>
+			<input type="submit" value="Sign in">
 		</fieldset>
-	</form>
+	</EditForm>
 </div>
 <footer />

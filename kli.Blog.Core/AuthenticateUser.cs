@@ -17,7 +17,10 @@ namespace kli.Blog.Core
 		{
 			public Task<ClaimsPrincipal> Handle(Request request, CancellationToken cancellationToken)
 			{
-				var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, "tobi") }, "Fake authentication type");
+				var identity = new ClaimsIdentity();
+				if (request.Login == request.Password)
+					identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, "tobi") }, "Fake authentication type");
+
 				return Task.FromResult(new ClaimsPrincipal(identity));
 			}
 		}

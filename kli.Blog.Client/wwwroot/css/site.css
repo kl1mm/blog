@@ -42,7 +42,11 @@ a:hover, a:active, a:visited {
 	margin: 0 auto;
 	padding-bottom: 2em;
 }
-
+	.signinform .error {
+		color: #dc143c;
+		margin-bottom: 8px;
+		font-weight: 700;
+	}
 	.signinform legend {
 		font-size: 1.2em;
 		font-weight: bold;
@@ -50,6 +54,8 @@ a:hover, a:active, a:visited {
 
 	.signinform fieldset {
 		border: none;
+		padding: 0;
+		margin: 0;
 	}
 
 	.signinform input[type=submit] {

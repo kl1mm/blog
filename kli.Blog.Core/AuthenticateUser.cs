@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using kli.Blog.Core.Settings;
-using kli.Blog.Shared.Extensions;
 using MediatR;
 using Microsoft.Extensions.Options;
 
@@ -14,6 +13,7 @@ namespace kli.Blog.Core
         {
             public string Login { get; set; } = string.Empty;
             public string PasswordHash { get; set; } = string.Empty;
+            public string Scheme { get; set; } = string.Empty;
         }
 
         internal class Handler : IRequestHandler<Request, ClaimsPrincipal>
@@ -29,7 +29,7 @@ namespace kli.Blog.Core
             {
                 var identity = new ClaimsIdentity();
                 if (this.ValidateCrendentials(request))
-                    identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, "tobi") }, "Fake authentication type");
+                    identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, "mMilk") }, request.Scheme);
 
                 return Task.FromResult(new ClaimsPrincipal(identity));
             }

@@ -21,7 +21,14 @@ namespace kli.Blog.API.Controllers
         [HttpPost]
         public async Task<ActionResult> SignIn([FromForm] string login, [FromForm] string passwordHash)
         {
-            var claimsPrincipal = await this.Mediator.Send(new AuthenticateUser.Request { Login = login, PasswordHash = passwordHash });
+            var request = new AuthenticateUser.Request
+            {
+                Login = login,
+                PasswordHash = passwordHash,
+                Scheme = CookieAuthenticationDefaults.AuthenticationScheme
+            };
+
+            var claimsPrincipal = await this.Mediator.Send(request);
             if (claimsPrincipal.Identity.IsAuthenticated)
             {
                 var authProperties = new AuthenticationProperties

@@ -21,7 +21,7 @@ namespace kli.Blog.Client
             var user = await this.httpClient.GetJsonAsync<UserModel>("api/authentication/userInfo");
 
             var identity = user.IsAuthenticated
-                ? new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, user.Name) }, "Cookies")
+                ? new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, user.Name) }, nameof(ServerAuthenticationStateProvider))
                 : new ClaimsIdentity();
 
 			return new AuthenticationState(new ClaimsPrincipal(identity));

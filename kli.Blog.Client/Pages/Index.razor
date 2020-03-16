@@ -2,24 +2,28 @@
 
 <header />
 <div class="content">
-	@if (this.Overview != null)
-	{
-		@foreach (var overviewEntry in this.Overview.Rows)
-		{
-			<div class="entry">
-				<h2 style="margin: 0;">
-					<a class="overview-header-link" href="@($"/entry/{overviewEntry.Id}")">@overviewEntry.Header</a>
-				</h2>
-				<span class="published">
-					<b>@overviewEntry.Published.ToString("MMM dd, yyyy")</b>
-				</span>
-				<p>
-					@((MarkupString)overviewEntry.Intro)
-					<a class="overview-header-more" href="@($"/entry/{overviewEntry.Id}")">...</a>
-				</p>
-			</div>
-		}
-		<Pagination PagedData="@this.Overview" PageChanged="@this.OnPageChanged" />
-	}
+    @if (this.Overview != null)
+    {
+        @foreach (var overviewEntry in this.Overview.Rows)
+        {
+            <div class="entry">
+                <h2 style="margin: 0;">
+                    <a class="overview-header-link" href="@($"/entry/{overviewEntry.Id}")">@overviewEntry.Header</a>
+                </h2>
+                <span class="published editable">
+                    <b>@overviewEntry.Published.ToString("MMM dd, yyyy")</b>
+                    <AuthorizeView>
+                        <a href="@($"/edit/{overviewEntry.Id}")"><img src="assets/edit-icon.png"></a>
+                        <a href="@($"/api/blog/deleteentry/{overviewEntry.Id}")"><img src="assets/delete-icon.png"></a>
+                    </AuthorizeView>
+                </span>
+                <p>
+                    @((MarkupString)overviewEntry.Intro)
+                    <a class="overview-header-more" href="@($"/entry/{overviewEntry.Id}")">...</a>
+                </p>
+            </div>
+        }
+        <Pagination PagedData="@this.Overview" PageChanged="@this.OnPageChanged" />
+    }
 </div>
-<footer/>
+<footer />

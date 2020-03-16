@@ -15,17 +15,16 @@ namespace kli.Blog.Client.Pages
         protected EntryModel EntryModel { get; set; } = new EntryModel();
         protected string? Error { get; set; }
 
-
-        protected async override Task OnAfterRenderAsync(bool firstRender)
+        protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if(firstRender)
-                await this.JSRuntime!.InvokeVoidAsync("jsinterop.initEntryEditor");
-        }
+            if (firstRender && this.EntryId > 0)
+            {
+                this.EntryModel = await this.Client.GetJsonAsync<EntryModel>($"api/blog/entry/{this.EntryId}");
+                this.StateHasChanged();
+            }
 
-        protected async override Task OnParametersSetAsync()
-        {
-            if (this.EntryId > 0)
-                await this.Client.GetJsonAsync<EntryModel>($"api/blog/entry/{this.EntryId}");
+            await this.JSRuntime!.InvokeVoidAsync("jsinterop.initEntryEditor");
+            await base.OnAfterRenderAsync(firstRender);
         }
 
         private async void OnSaveAsync()

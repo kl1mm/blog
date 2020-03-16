@@ -3,25 +3,29 @@
 
 <header />
 <div class="content">
-    @if (EntryModel != null)
-    {
-        <EditForm OnSubmit="@OnSaveAsync" Model="@EntryModel">
-            @if (Error != null)
+    <AuthorizeView>
+        <Authorized Context="Auth">
+            @if (EntryModel != null)
             {
-                <div class="error">@Error</div>
+                <EditForm OnSubmit="@OnSaveAsync" Model="@EntryModel" class="form">
+                    @if (Error != null)
+                    {
+                        <div class="error">@Error</div>
+                    }
+                    <fieldset>
+                        <legend>@(this.EntryId > 0 ? "Edit" : "New") entry</legend>
+                        <InputText @bind-Value="EntryModel.Header" placeholder="title" />
+                        <InputTextArea @bind-Value="EntryModel.Intro" placeholder="short description" rows="5" />
+                        <InputTextArea @bind-Value="EntryModel.Content" id="entryEditor" placeholder="content" />
+                        <input type="submit" value="Save">
+                        <InputCheckbox @bind-Value="EntryModel.IsPublished" /> Is published
+                    </fieldset>
+                </EditForm>
             }
-            <fieldset>
-                <InputText @bind-Value="EntryModel.Header" type="text" placholder="title" />
-                <InputTextArea @bind-Value="EntryModel.Intro" placholder="short description" />
-                <InputTextArea @bind-Value="EntryModel.Content" id="entryEditor" />
-                <label>
-                    <InputCheckbox @bind-Value="EntryModel.IsPublished" />
-                    Is published:
-                </label>
-
-                <input type="submit" value="Save">
-            </fieldset>
-        </EditForm>
-    }
+        </Authorized>
+        <NotAuthorized>
+            Sry, not possible 4 u :/
+        </NotAuthorized>
+    </AuthorizeView>
 </div>
 <footer />

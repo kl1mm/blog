@@ -3,6 +3,8 @@
     margin: 0;
     height: 100%;
     color: #4b505a;
+    line-height: 1.5;
+    font-size: 1.05rem;
 }
 
 h1 {
@@ -221,6 +223,11 @@ footer {
         text-decoration: none;
         color: #4b505a;
     }
+
+a {
+    color: #0e849c;
+    text-decoration: none;
+}
 
 main {
     flex: 1 0 auto;

@@ -22,9 +22,10 @@ namespace kli.Blog.API.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveEntry(EntryModel entryModel)
+        public async Task<ActionResult<int>> SaveEntry(SaveBlogEntry.Request request)
         {
-            return this.Ok();
+            var result = await this.Mediator.Send(request);
+            return this.Ok(result);
         }
 
         [HttpDelete("{entryId}")]

@@ -1,8 +1,11 @@
-﻿using kli.Blog.Shared.Models;
-using MediatR;
-using System;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using FluentValidation;
+using kli.Blog.Core.Contracts.Data;
+using kli.Blog.Core.Entities;
+using kli.Blog.Shared.Models;
+using MediatR;
 
 namespace kli.Blog.Core.UseCases
 {
@@ -15,25 +18,41 @@ namespace kli.Blog.Core.UseCases
 
         internal class Handler : IRequestHandler<Request, EntryModel>
         {
+            private readonly IUnitOfWork unitOfWork;
+
+            public Handler(IUnitOfWork unitOfWork)
+            {
+                this.unitOfWork = unitOfWork;
+            }
+
             public Task<EntryModel> Handle(Request request, CancellationToken cancellationToken)
             {
-                var model = new EntryModel
+                using (var scope = this.unitOfWork.Begin())
                 {
-                    Header = "Ich bin die Überschrift",
-                    Intro = "Ich beschreibe den ganzen Bums hier schon mal ein wenig. Allerding nutze ich kaum Details.",
-                    Published = DateTime.Now,
-                    Content = A
-                };
+                    var model = scope.SetOf<BlogEntry>()
+                        .Where(entry => entry.Id == request.Id)
+                        .Select(e => new EntryModel
+                        {
+                            Id = e.Id,
+                            Header = e.Header,
+                            Intro = e.Intro,
+                            Content = e.Content,
+                            IsPublished = e.IsPublished,
+                            Published = e.Published
+                        })
+                        .SingleOrDefault();
 
-                return Task.FromResult(model);
+                    return Task.FromResult(model);
+                }
             }
         }
 
-        public const string A = "<p>Almost all rich client-side web apps (SPAs) involve interacting with a data store. Normally, that data store is held on some server, and the browser-based app queries it by making HTTP calls to some API endpoint. Another option, though, is to store a database <em>client-side</em> in the browser. The great benefit of doing so is that it permits completely instant querying, and can even work offline.</p>" +
-            "<p><a href=\"https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API\">IndexedDB</a> has been around for ages, and remains the dominant way to put a client-side database in your SPA. It’s an indexed store of JSON objects, which lets you configure your own versioned data schema and perform efficient queries against the indexes you’ve defined. Naturally, it works both offline and online.</p>" +
-            "<h2 id=\"using-indexeddb-with-blazor\">Using IndexedDB with Blazor</h2>" +
-            "<p>You <em>could</em> use the native IndexedDB APIs through Blazor’s JS interop capability. But you’ll have a rough time, because - to put it kindly - the IndexedDB APIs are atrocious. IndexedDB came onto the scene before <code class=\"language-plaintext highlighter-rouge\">Promise</code>, so it has an events-based asynchrony model, which is a disaster to work with.</p>" +
-            "<p>So, I was pretty intrigued when I heard about <a href=\"https://github.com/Reshiru/Blazor.IndexedDB.Framework\"><code class=\"language-plaintext highlighter-rouge\">Reshiru.Blazor.IndexedDB.Framework</code></a>, a NuGet package described as:</p>";
-
+        internal class Validator : AbstractValidator<Request>
+        {
+            public Validator()
+            {
+                this.RuleFor(req => req.Id).GreaterThan(0);
+            }
+        }
     }
 }

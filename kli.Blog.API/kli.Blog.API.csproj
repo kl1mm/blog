@@ -1,15 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-	<PropertyGroup>
-		<TargetFramework>netcoreapp3.1</TargetFramework>
-	</PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="3.2.0-preview2.20160.5" />
-	</ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="3.2.0-preview2.20160.5" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\kli.Blog.Client\kli.Blog.Client.csproj" />
-		<ProjectReference Include="..\kli.Blog.Core\kli.Blog.Core.csproj" />
-	</ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.2">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <ProjectReference Include="..\kli.Blog.Client\kli.Blog.Client.csproj" />
+        <ProjectReference Include="..\kli.Blog.Core\kli.Blog.Core.csproj" />
+        <ProjectReference Include="..\kli.Blog.Persistence\kli.Blog.Persistence.csproj" />
+    </ItemGroup>
 </Project>

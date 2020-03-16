@@ -24,7 +24,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "kli.Blog.Shared", "kli.Blog
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BAAEDB91-23D9-486C-9131-680AC45D17FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kli.Blog.Test", "kli.Blog.Test\kli.Blog.Test.csproj", "{B1285F41-363A-4777-9546-ABB471D8DE21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "kli.Blog.Test", "kli.Blog.Test\kli.Blog.Test.csproj", "{B1285F41-363A-4777-9546-ABB471D8DE21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kli.Blog.Persistence", "kli.Blog.Persistence\kli.Blog.Persistence.csproj", "{EC2F5572-70EE-46ED-BD79-68C08AFBD166}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +54,10 @@ Global
 		{B1285F41-363A-4777-9546-ABB471D8DE21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1285F41-363A-4777-9546-ABB471D8DE21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1285F41-363A-4777-9546-ABB471D8DE21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC2F5572-70EE-46ED-BD79-68C08AFBD166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC2F5572-70EE-46ED-BD79-68C08AFBD166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC2F5572-70EE-46ED-BD79-68C08AFBD166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC2F5572-70EE-46ED-BD79-68C08AFBD166}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		{C240ACFB-CABD-4D0E-879C-82EDBD506DE8} = {E788BE04-78F8-4E0E-AA2F-8C25955199C0}
 		{2ED1A4E0-3D6E-4771-A814-580DD65BE4DD} = {E788BE04-78F8-4E0E-AA2F-8C25955199C0}
 		{B1285F41-363A-4777-9546-ABB471D8DE21} = {BAAEDB91-23D9-486C-9131-680AC45D17FE}
+		{EC2F5572-70EE-46ED-BD79-68C08AFBD166} = {E788BE04-78F8-4E0E-AA2F-8C25955199C0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {930CD9D7-5AB6-40CF-BFAE-BA8FC9F356BC}

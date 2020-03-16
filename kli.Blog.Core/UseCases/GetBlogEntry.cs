@@ -4,7 +4,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace kli.Blog.Core
+namespace kli.Blog.Core.UseCases
 {
     public static class GetBlogEntry
     {

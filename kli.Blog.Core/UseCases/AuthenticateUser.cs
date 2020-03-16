@@ -5,7 +5,7 @@ using kli.Blog.Core.Settings;
 using MediatR;
 using Microsoft.Extensions.Options;
 
-namespace kli.Blog.Core
+namespace kli.Blog.Core.UseCases
 {
     public static class AuthenticateUser
     {

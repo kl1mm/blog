@@ -4,9 +4,9 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace kli.Blog.Core
+namespace kli.Blog.Core.UseCases
 {
-    public class AboutMe
+    public static class GetAboutMe
     {
         public class Request : IRequest<EntryModel>
         { }

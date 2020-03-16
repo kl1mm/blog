@@ -13,8 +13,8 @@
                 <span class="published editable">
                     <b>@overviewEntry.Published.ToString("MMM dd, yyyy")</b>
                     <AuthorizeView>
-                        <a href="@($"/edit/{overviewEntry.Id}")"><img src="assets/edit-icon.png"></a>
-                        <a href="@($"/api/blog/deleteentry/{overviewEntry.Id}")"><img src="assets/delete-icon.png"></a>
+                        <img src="assets/edit-icon.png" @onclick="@(() => OnEdit(overviewEntry.Id))">
+                        <img src="assets/delete-icon.png" @onclick="@(() => OnDelete(overviewEntry.Id))">
                     </AuthorizeView>
                 </span>
                 <p>

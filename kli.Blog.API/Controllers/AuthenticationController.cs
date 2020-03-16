@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using kli.Blog.Core;
+using kli.Blog.Core.UseCases;
 using kli.Blog.Shared.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;

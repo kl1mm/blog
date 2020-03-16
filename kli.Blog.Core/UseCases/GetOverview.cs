@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using kli.Blog.Shared.Models;
 using MediatR;
 
-namespace kli.Blog.Core
+namespace kli.Blog.Core.UseCases
 {
     public static class GetBlogOverview
     {
